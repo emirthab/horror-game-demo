@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/sprite/player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
 
 [node name="game" type="Spatial"]
 
@@ -9,3 +11,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26815, -2.06128, -4.80297 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.566162, 0.420442, -0.709006, 0, 0.860137, 0.510063, 0.824294, -0.288778, 0.486977, -2.0116, 1.01817, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
