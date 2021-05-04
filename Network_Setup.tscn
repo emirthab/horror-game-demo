@@ -1,0 +1,59 @@
+[gd_scene format=2]
+
+[node name="Network_Setup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multiplayer_Configure" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Create_Server" type="Button" parent="Multiplayer_Configure"]
+margin_left = 343.694
+margin_top = 244.168
+margin_right = 612.694
+margin_bottom = 292.168
+text = "Create server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join_Server" type="Button" parent="Multiplayer_Configure"]
+margin_left = 349.405
+margin_top = 381.455
+margin_right = 618.405
+margin_bottom = 429.455
+text = "Join Server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username_text_edit" type="LineEdit" parent="Multiplayer_Configure"]
+margin_left = 322.282
+margin_top = 153.26
+margin_right = 670.282
+margin_bottom = 208.26
+text = "Enter your username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Multiplayer_Configure"]
+margin_left = 403.326
+margin_top = 483.308
+margin_right = 530.326
+margin_bottom = 511.308
+text = "Device_ip_address"
+
+[node name="LineEdit" type="LineEdit" parent="Multiplayer_Configure"]
+margin_left = 307.898
+margin_top = 311.0
+margin_right = 671.898
+margin_bottom = 359.0
+text = "Enter IP address"
