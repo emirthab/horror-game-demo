@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/down_hill.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/script/loby.gd" type="Script" id=2]
+
+[node name="Loby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multiplayer_Configure" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Create_Server" type="Button" parent="Multiplayer_Configure"]
+margin_left = 98.694
+margin_top = 278.168
+margin_right = 367.694
+margin_bottom = 326.168
+custom_fonts/font = ExtResource( 1 )
+text = "Create server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join_Server" type="Button" parent="Multiplayer_Configure"]
+margin_left = 566.172
+margin_top = 276.617
+margin_right = 835.172
+margin_bottom = 324.617
+custom_fonts/font = ExtResource( 1 )
+text = "Join Server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username_input" type="LineEdit" parent="Multiplayer_Configure"]
+margin_left = 322.282
+margin_top = 70.26
+margin_right = 670.282
+margin_bottom = 125.26
+custom_fonts/font = ExtResource( 1 )
+text = "Enter your username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="device_ip" type="Label" parent="Multiplayer_Configure"]
+margin_left = 417.723
+margin_top = 484.415
+margin_right = 544.723
+margin_bottom = 512.416
+text = "Device_ip_address"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="join_ip" type="LineEdit" parent="Multiplayer_Configure"]
+margin_left = 551.767
+margin_top = 224.162
+margin_right = 848.767
+margin_bottom = 265.162
+custom_fonts/font = ExtResource( 1 )
+text = "127.0.0.1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Multiplayer_Configure/Create_Server" to="." method="_on_Create_Server_pressed"]
+[connection signal="pressed" from="Multiplayer_Configure/Join_Server" to="." method="_on_Join_Server_pressed"]

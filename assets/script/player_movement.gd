@@ -18,11 +18,16 @@ func _ready():
 	
 	
 func _process(delta):
-	pass
+	#if player has velocity, movement data will send other players.
+	if velocity != Vector3(0,0,0):
+		rpc_unreliable("sendPose",global_transform)
+	
 
 func _physics_process(delta):
-	#Run movement codes
-	handle_movement(delta)
+	
+	#Run movement codes only self client.
+	if is_network_master():
+		handle_movement(delta)
 
 
 func handle_movement(delta):
@@ -101,3 +106,6 @@ func _input(event):
 
 		
 # ||| ------------- Remote Funcs ------------- ||| #
+
+remote func sendPose(pos):
+	global_transform = pos
