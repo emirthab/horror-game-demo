@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$HTTPRequest.request("https://api.ipify.org")
 
 func _on_Create_Server_pressed():
 	#usertype 0 for Server
@@ -21,3 +21,7 @@ func _player_connected():
 	
 func _player_disconnected():
 	pass
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	$Multiplayer_Configure/device_ip.set_text(str(body.get_string_from_utf8()))
