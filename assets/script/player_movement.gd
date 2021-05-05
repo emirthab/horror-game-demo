@@ -142,6 +142,9 @@ func pickUp():
 	if $pivot/Aim.is_colliding():
 		if "item" in $pivot/Aim.get_collider().name:
 #Materials in here.
+			var a = $pivot/Aim.get_collider().get_node("MeshInstance")
+			
+			
 			if Input.is_action_just_pressed("pickUp"):
 				print("Basarili")
 			
