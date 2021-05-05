@@ -30,7 +30,6 @@ func _physics_process(delta):
 	
 	#Run movement codes only self client.
 	handle_movement(delta)
-	
 	# /- Fast run limitations -\
 	#'Resultant' is velocity vector's x and velocity vector's z resultant.
 	#So 'resultant' is a speed via velocity. (estimated value)
