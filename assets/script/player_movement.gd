@@ -6,11 +6,14 @@ var speed = 1.4
 var acceleration = 5
 var air_acceleration : float = 5
 var mouse_sensivity = 0.1
-var jump_power = 4.8
+var jump_power = 3.3
 var max_terminal_velocity : float = 13
 var gravity : float = 0.13
 var y_velocity : float
 
+var speedTimeLimit = 6.5
+var speedTime = 0
+var canFast = true
 
 func _ready():
 	#Mouse visibility
@@ -27,6 +30,24 @@ func _physics_process(delta):
 	
 	#Run movement codes only self client.
 	handle_movement(delta)
+	
+	# /- Fast run limitations -\
+	#'Resultant' is velocity vector's x and velocity vector's z resultant.
+	#So 'resultant' is a speed via velocity. (estimated value)
+	#'SpeedTime' is a "The time the current speed is driving"
+	#When the speed reaches the limit, the timer will be activated and will not be accelerated during the timer.
+	#If the acceleration stops(release shift) , the 'speedTime' will reverse.
+	var resultant = sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z))
+	if resultant > 3.5:
+		if speedTime > speedTimeLimit:
+			canFast = false
+			$SpeedLimit.start()
+		else:
+			speedTime += delta
+	elif speedTime > 0:
+		speedTime -= delta
+		
+		
 
 
 func handle_movement(delta):
@@ -94,7 +115,10 @@ func _input(event):
 
 	#Speed Up.
 	if Input.is_key_pressed(KEY_SHIFT):
-		speed = 3.7
+		if canFast == true:
+			speed = 3.7
+		else:
+			speed = 1.4
 	else:
 		speed = 1.4
 	
@@ -113,3 +137,8 @@ func _input(event):
 
 remote func sendPose(pos):
 	global_transform = pos
+
+
+func _on_SpeedLimit_timeout():
+	canFast = true
+	speedTime = 0
