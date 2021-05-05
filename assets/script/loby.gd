@@ -16,12 +16,6 @@ func _on_Join_Server_pressed():
 	var scene = "res://assets/scene/demo_scene.tscn"
 	get_tree().change_scene(scene)
 
-func _player_connected():
-	pass
-	
-func _player_disconnected():
-	pass
-
-
+#Get device ip adress
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	$Multiplayer_Configure/device_ip.set_text(str(body.get_string_from_utf8()))

@@ -26,8 +26,7 @@ func _process(delta):
 func _physics_process(delta):
 	
 	#Run movement codes only self client.
-	if is_network_master():
-		handle_movement(delta)
+	handle_movement(delta)
 
 
 func handle_movement(delta):
@@ -37,6 +36,8 @@ func handle_movement(delta):
 
 	#Directions
 	if Input.is_action_pressed("move_forward"):
+		if $raycast_down.is_colliding() && !$raycast_up.is_colliding():
+			y_velocity = 1
 		direction -= transform.basis.z
 	
 	elif Input.is_action_pressed("move_backward"):
@@ -82,10 +83,13 @@ func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	
 	#Mouse visibility changes when esc is pressed.
-	if Input.is_key_pressed(KEY_ESCAPE) && just_pressed:
+	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
+		print("deneme")
 		if Input.get_mouse_mode() == 0:
+			print("0")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
+			print("1")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	#Speed Up.
@@ -101,8 +105,8 @@ func _input(event):
 
 	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensivity))
-		$Camera.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
-		$Camera.rotation.x = clamp($Camera.rotation.x,deg2rad(-90),deg2rad(90))
+		$pivot.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
+		$pivot.rotation.x = clamp($pivot.rotation.x,deg2rad(-90),deg2rad(90))
 
 		
 # ||| ------------- Remote Funcs ------------- ||| #
