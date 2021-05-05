@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/script/demo_scene.gd" type="Script" id=1]
 [ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
@@ -17,6 +17,10 @@ points = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1 )
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id=5]
+
+[sub_resource type="SphereShape" id=6]
 
 [node name="game" type="Spatial"]
 script = ExtResource( 1 )
@@ -147,3 +151,15 @@ transform = Transform( -0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -1.2911
 use_collision = true
 height = 0.218245
 material = SubResource( 4 )
+
+[node name="item_demo" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66256, -1.34559 )
+
+[node name="MeshInstance" type="MeshInstance" parent="item_demo"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="item_demo"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+shape = SubResource( 6 )

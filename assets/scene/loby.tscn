@@ -73,6 +73,7 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="Multiplayer_Configure/Create_Server" to="." method="_on_Create_Server_pressed"]
 [connection signal="pressed" from="Multiplayer_Configure/Join_Server" to="." method="_on_Join_Server_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

@@ -11,6 +11,7 @@ var max_terminal_velocity : float = 13
 var gravity : float = 0.13
 var y_velocity : float
 
+
 var speedTimeLimit = 6.5
 var speedTime = 0
 var canFast = true
@@ -122,6 +123,7 @@ func _input(event):
 		speed = 1.4
 	
 
+
 	#Camera and character rotation:
 	#In left and right rotation, the camera rotates with the character. 
 	#Only the camera rotates when looking up and down.
@@ -131,6 +133,18 @@ func _input(event):
 		$pivot.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
 		$pivot.rotation.x = clamp($pivot.rotation.x,deg2rad(-90),deg2rad(90))
 
+
+func _on_SpeedLimit_timeout():
+	canFast = true
+	speedTime = 0
+
+func pickUp():
+	if $pivot/Aim.is_colliding():
+		if "item" in $pivot/Aim.get_collider().name:
+#Materials in here.
+			if Input.is_action_just_pressed("pickUp"):
+				print("Basarili")
+			
 		
 # ||| ------------- Remote Funcs ------------- ||| #
 
@@ -138,6 +152,3 @@ remote func sendPose(pos):
 	global_transform = pos
 
 
-func _on_SpeedLimit_timeout():
-	canFast = true
-	speedTime = 0
