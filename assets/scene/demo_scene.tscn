@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/script/demo_scene.gd" type="Script" id=1]
 [ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
+[ext_resource path="res://assets/script/item.vs" type="Script" id=3]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -20,9 +21,9 @@ uv1_triplanar = true
 
 [sub_resource type="SphereMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=6]
 
-[sub_resource type="SphereShape" id=6]
+[sub_resource type="SphereShape" id=7]
 
 [node name="game" type="Spatial"]
 script = ExtResource( 1 )
@@ -156,12 +157,13 @@ material = SubResource( 4 )
 
 [node name="item_demo" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66256, -1.34559 )
+script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="item_demo"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
 mesh = SubResource( 5 )
-material/0 = SubResource( 7 )
+material/0 = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="item_demo"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )

@@ -44,5 +44,4 @@ cast_to = Vector3( 0, 0, -3 )
 [node name="SpeedLimit" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
 [connection signal="timeout" from="SpeedLimit" to="." method="_on_SpeedLimit_timeout"]

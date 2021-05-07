@@ -1,6 +1,5 @@
 extends Spatial
 
-
 func _ready():
 	get_tree().connect("network_peer_connected",self,"_player_connected")
 	get_tree().connect("network_peer_disconnected",self,"_player_disconnected")
@@ -48,8 +47,6 @@ func multiplayerCreate(type):
 	addPlayerCount(1)
 
 
-
-
 func _player_connected(id):
 	createPlayer(id)
 	addPlayerCount(1)
@@ -75,4 +72,3 @@ func createPlayer(id):
 	player.global_transform = $playerPosition.global_transform
 	print("oyuncu baglandi ", id)
 	add_child(player)
-	

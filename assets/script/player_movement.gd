@@ -29,6 +29,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	
+	
 	#Run movement codes only self client.
 	handle_movement(delta)
 	# /- Fast run limitations -\
@@ -105,12 +106,9 @@ func _input(event):
 	
 	#Mouse visibility changes when esc is pressed.
 	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
-		print("deneme")
 		if Input.get_mouse_mode() == 0:
-			print("0")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
-			print("1")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	#Speed Up.
@@ -138,17 +136,7 @@ func _on_SpeedLimit_timeout():
 	canFast = true
 	speedTime = 0
 
-func pickUp():
-	if $pivot/Aim.is_colliding():
-		if "item" in $pivot/Aim.get_collider().name:
-#Materials in here.
-			var a = $pivot/Aim.get_collider().get_node("MeshInstance")
-			
-			
-			if Input.is_action_just_pressed("pickUp"):
-				print("Basarili")
-			
-		
+
 # ||| ------------- Remote Funcs ------------- ||| #
 
 remote func sendPose(pos):
