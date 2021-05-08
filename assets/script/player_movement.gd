@@ -25,6 +25,8 @@ func _process(delta):
 	#if player has velocity, movement data will send other players.
 	if velocity != Vector3(0,0,0):
 		rpc_unreliable("sendPose",global_transform)
+		
+	animationNetwork()
 	
 
 func _physics_process(delta):
@@ -32,23 +34,8 @@ func _physics_process(delta):
 	
 	#Run movement codes only self client.
 	handle_movement(delta)
-	# /- Fast run limitations -\
-	#'Resultant' is velocity vector's x and velocity vector's z resultant.
-	#So 'resultant' is a speed via velocity. (estimated value)
-	#'SpeedTime' is a "The time the current speed is driving"
-	#When the speed reaches the limit, the timer will be activated and will not be accelerated during the timer.
-	#If the acceleration stops(release shift) , the 'speedTime' will reverse.
-	var resultant = sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z))
-	if resultant > 3.5:
-		if speedTime > speedTimeLimit:
-			canFast = false
-			$SpeedLimit.start()
-		else:
-			speedTime += delta
-	elif speedTime > 0:
-		speedTime -= delta
-		
-		
+	speedLimit(delta)
+
 
 
 func handle_movement(delta):
@@ -100,7 +87,7 @@ func handle_movement(delta):
 
 
 func _input(event):
-	
+
 	#One click
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	
@@ -131,12 +118,44 @@ func _input(event):
 		$pivot.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
 		$pivot.rotation.x = clamp($pivot.rotation.x,deg2rad(-90),deg2rad(90))
 
+func speedLimit(delta):
+	
+	# /- Fast run limitations -\
+	#'Resultant' is velocity vector's x and velocity vector's z resultant.
+	#So 'resultant' is a speed via velocity. (estimated value)
+	#'SpeedTime' is a "The time the current speed is driving"
+	#When the speed reaches the limit, the timer will be activated and will not be accelerated during the timer.
+	#If the acceleration stops(release shift) , the 'speedTime' will reverse.
+
+	var resultant = sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z))
+	if resultant > 3.5:
+		if speedTime > speedTimeLimit:
+			canFast = false
+			$SpeedLimit.start()
+		else:
+			speedTime += delta
+	elif speedTime > 0:
+		speedTime -= delta
+
 
 func _on_SpeedLimit_timeout():
 	canFast = true
 	speedTime = 0
 
-
+func animationNetwork():
+	var resultant = sqrt((velocity.x * velocity.x) + (velocity.z * velocity.z))
+	if y_velocity < 0:
+		if resultant > 3.5:
+			rpc("setAnimation","run")
+		elif resultant > 0:
+			rpc("setAnimation","walk")
+		elif resultant == 0:
+			rpc("setAnimation","idle")
+	else:
+		rpc("setAnimation","jump")
+	
+	
+	
 # ||| ------------- Remote Funcs ------------- ||| #
 
 remote func sendPose(pos):

@@ -1,21 +1,20 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/script/puppet_player.gd" type="Script" id=1]
+[ext_resource path="res://assets/geometry/armature_nun.tscn" type="PackedScene" id=2]
 
-[sub_resource type="CapsuleMesh" id=1]
-radius = 0.5
-
-[sub_resource type="CapsuleShape" id=2]
-radius = 0.5
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.290171
+height = 1.22034
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.0401925, 0 )
+shape = SubResource( 1 )
+
+[node name="the_nun" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.14146, 0, -3.71935e-07, 0, 1.14146, 0, 3.71935e-07, 0, -1.14146, 0.12975, -0.925982, 0 )
+
+[editable path="the_nun"]
