@@ -11,7 +11,7 @@ input_ray_pickable = false
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.0773926, 0 )
 shape = SubResource( 1 )
 
 [node name="raycast_down" type="RayCast" parent="."]
@@ -27,7 +27,7 @@ cast_to = Vector3( 0, 0, -0.2 )
 [node name="pivot" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427282, -0.479146 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665092, -0.479146 )
 
 [node name="Aim" type="RayCast" parent="pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3792, -0.523978 )
