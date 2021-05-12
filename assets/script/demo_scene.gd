@@ -31,6 +31,7 @@ func multiplayerCreate(type):
 		player.set_network_master(id)
 		player.global_transform = $playerPosition.global_transform
 		add_child(player)
+		Globals.playerId = id
 
 	elif type == "client":
 		#ip set to join_ip input
@@ -43,7 +44,8 @@ func multiplayerCreate(type):
 		player.set_network_master(id)
 		player.global_transform = $playerPosition.global_transform
 		add_child(player)
-
+		Globals.playerId = id
+		
 	addPlayerCount(1)
 
 

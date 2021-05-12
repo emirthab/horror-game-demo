@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Door_Door_1_PBR_Normal.png-5f78ba6b756e2b4f6cb042d50c96d8c4.s3tc.stex"
-path.etc2="res://.import/Door_Door_1_PBR_Normal.png-5f78ba6b756e2b4f6cb042d50c96d8c4.etc2.stex"
+path.s3tc="res://.import/Key_Key_Normal.png-e7e3409c92035f8e64ea3e960b44cc43.s3tc.stex"
+path.etc2="res://.import/Key_Key_Normal.png-e7e3409c92035f8e64ea3e960b44cc43.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/geometry/article/door/textures/Door_Door_1_PBR_Normal.png"
-dest_files=[ "res://.import/Door_Door_1_PBR_Normal.png-5f78ba6b756e2b4f6cb042d50c96d8c4.s3tc.stex", "res://.import/Door_Door_1_PBR_Normal.png-5f78ba6b756e2b4f6cb042d50c96d8c4.etc2.stex" ]
+source_file="res://assets/geometry/article/key/Textures/Key_Key_Normal.png"
+dest_files=[ "res://.import/Key_Key_Normal.png-e7e3409c92035f8e64ea3e960b44cc43.s3tc.stex", "res://.import/Key_Key_Normal.png-e7e3409c92035f8e64ea3e960b44cc43.etc2.stex" ]
 
 [params]
 

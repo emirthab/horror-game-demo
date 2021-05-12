@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Door_Door_1_PBR_BaseColor.png-6aa53806c71202ba2cc661ae569662f4.s3tc.stex"
-path.etc2="res://.import/Door_Door_1_PBR_BaseColor.png-6aa53806c71202ba2cc661ae569662f4.etc2.stex"
+path.s3tc="res://.import/Key_Key_AlbedoTransparency.png-9cd075ca955cf0daf21cbb52a01b1079.s3tc.stex"
+path.etc2="res://.import/Key_Key_AlbedoTransparency.png-9cd075ca955cf0daf21cbb52a01b1079.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/geometry/article/door/textures/Door_Door_1_PBR_BaseColor.png"
-dest_files=[ "res://.import/Door_Door_1_PBR_BaseColor.png-6aa53806c71202ba2cc661ae569662f4.s3tc.stex", "res://.import/Door_Door_1_PBR_BaseColor.png-6aa53806c71202ba2cc661ae569662f4.etc2.stex" ]
+source_file="res://assets/geometry/article/key/Textures/Key_Key_AlbedoTransparency.png"
+dest_files=[ "res://.import/Key_Key_AlbedoTransparency.png-9cd075ca955cf0daf21cbb52a01b1079.s3tc.stex", "res://.import/Key_Key_AlbedoTransparency.png-9cd075ca955cf0daf21cbb52a01b1079.etc2.stex" ]
 
 [params]
 
