@@ -22,7 +22,7 @@ func _process(delta):
 				if Globals.ownedKeys.has(doorId):
 					rpc("_doorUnlock")
 				else:
-					print("anahtar yok")
+					rpc("_doorNoKey")
 		
 
 remotesync func _doorEvent(_event):
@@ -36,4 +36,7 @@ remotesync func _doorEvent(_event):
 remotesync func _doorUnlock():
 	lock = false
 	#unlock sound
+remotesync func _doorNoKey():
+	$AnimationPlayer.play("shake")
+	#cant unlock sound
 	

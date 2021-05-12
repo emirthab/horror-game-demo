@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/geometry/article/door/Door_1_PBR.material" type="Material" id=1]
 [ext_resource path="res://assets/script/door.gd" type="Script" id=2]
@@ -99,6 +99,22 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -96.584, 0 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0614124, 0.114436, 0.165782, 0.220484, 0.278853, 0.340265, 0.398986 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.558, 0, 0 ), Vector3( 0.148987, 0.00197896, 0.761003 ), Vector3( -0.342, -0.000127429, -0.0489991 ), Vector3( 0.92, -1.23673e-10, -0.514 ), Vector3( 0.558, 0, 0 ), Vector3( 0.148987, 0.00197896, 0.761003 ), Vector3( 0, 0, 0 ) ]
+}
+
 [node name="Door" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -141,3 +157,4 @@ shape = SubResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/closing = SubResource( 7 )
 anims/opening = SubResource( 8 )
+anims/shake = SubResource( 9 )
