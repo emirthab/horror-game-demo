@@ -150,13 +150,6 @@ use_collision = true
 height = 0.218245
 material = SubResource( 4 )
 
-[node name="Key" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.18911, 0, -1.88014, 0, 2.88568, 0, 1.88014, 0, 2.18911, 0.664759, 0.769253, -0.113724 )
-
-[node name="Key2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.18911, 0, -1.88014, 0, 2.88568, 0, 1.88014, 0, 2.18911, -0.071631, 0.769253, -0.113724 )
-keyId = 0
-
 [node name="Door" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86424, 0, 10.5009 )
 lock = true
@@ -165,3 +158,13 @@ lock = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03087, 0, 10.5009 )
 lock = true
 doorId = 1
+
+[node name="Key" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.18911, 0, -1.88014, 0, 2.88568, 0, 1.88014, 0, 2.18911, 0.664759, 0.802575, -0.113724 )
+keyId = 1
+
+[node name="Key3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, -0.334934, 0.801, -0.0433817 )
+
+[node name="Key2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, 0.16882, 0.801, -0.0433817 )

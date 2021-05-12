@@ -1,18 +1,29 @@
 extends Spatial
 
-
-var next_pass = preload("res://assets/material_shader/key_outline.material")
-
 export(int) var keyId
+
+var outlineMaterial = SpatialMaterial.new()
+var mainMaterial = preload("res://assets/geometry/article/key/Key.material")
+
+
+func _ready():
+	var next_pass = preload("res://assets/material_shader/key_outline.material")
+	
+	outlineMaterial = mainMaterial.duplicate()
+	outlineMaterial.set_next_pass(next_pass)
 
 func _process(delta):
 	
-	if Globals.raycastTrigger($StaticBody):
-		$Key2.get_surface_material(0).set_next_pass(next_pass)
+	if Globals.raycastTrigger(self):
+		$Key2.set_surface_material(0,outlineMaterial)
 		if Input.is_action_just_pressed("pickUp"):
 			Globals.ownedKeys.append(keyId)
-			queue_free()
+			rpc("getKey")
+
 	else:
-		$Key2.get_surface_material(0).set_next_pass(null)
+		$Key2.set_surface_material(0,mainMaterial)
+		
+remotesync func getKey():
+	queue_free()
 
 
