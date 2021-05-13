@@ -30,7 +30,7 @@ cast_to = Vector3( 0, 0, -0.2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665092, -0.479146 )
 
 [node name="Aim" type="RayCast" parent="pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3792, -0.523978 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663404, -0.485361 )
 enabled = true
 cast_to = Vector3( 0, 0, -3 )
 

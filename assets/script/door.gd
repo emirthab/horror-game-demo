@@ -4,11 +4,13 @@ export(bool) var lock = false
 export(int) var doorId
 
 var open = false
+var isAiming = false
 
-func _process(delta):
-	
-	if Globals.raycastTrigger($pivot/KinematicBody):
-		if Input.is_action_just_pressed("pickUp"):
+
+
+func _input(event):
+	if Input.is_action_just_pressed("pickUp"):
+		if Globals.getAimObject() == $pivot/KinematicBody:
 			if lock == false:
 				if open == true:
 					rpc("_doorEvent","close")

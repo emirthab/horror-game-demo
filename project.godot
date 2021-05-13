@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://assets/script/globals.gd"
+Language="*res://assets/script/language.gd"
 
 [input]
 

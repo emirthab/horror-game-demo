@@ -16,7 +16,10 @@ var speedTimeLimit = 6.5
 var speedTime = 0
 var canFast = true
 
+var lastTarget = null
+
 func _ready():
+	print(Globals.language)
 	#Mouse visibility
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
 	
@@ -27,6 +30,8 @@ func _process(delta):
 		rpc_unreliable("sendPose",global_transform)
 		
 	animationNetwork()
+	
+	aimTrigger()
 	
 
 func _physics_process(delta):
@@ -155,7 +160,19 @@ func animationNetwork():
 		rpc("setAnimation","jump")
 	
 	
-	
+func aimTrigger():
+	var aim = $pivot/Aim
+	if aim.is_colliding():
+		var col = aim.get_collider()
+		if lastTarget != col:
+			if lastTarget != null:
+				Globals.emit_signal("_on_aim_exited",lastTarget)
+			Globals.emit_signal("_on_aim_entered",col)
+			lastTarget = col
+			
+	elif lastTarget != null:
+		Globals.emit_signal("_on_aim_exited",lastTarget)
+		lastTarget = null
 # ||| ------------- Remote Funcs ------------- ||| #
 
 remote func sendPose(pos):

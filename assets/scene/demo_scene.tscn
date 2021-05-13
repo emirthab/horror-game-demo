@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/script/demo_scene.gd" type="Script" id=1]
 [ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprite/Key.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprite/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/ui_in_game.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/script/world_environment.gd" type="Script" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -162,9 +164,14 @@ doorId = 1
 [node name="Key" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.18911, 0, -1.88014, 0, 2.88568, 0, 1.88014, 0, 2.18911, 0.664759, 0.802575, -0.113724 )
 keyId = 1
-
-[node name="Key3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, -0.334934, 0.801, -0.0433817 )
+keyName = "kitchen"
 
 [node name="Key2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, 0.16882, 0.801, -0.0433817 )
+transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, -0.125644, 0.801, -0.0433817 )
+keyName = "kitchen"
+
+[node name="UI" parent="." instance=ExtResource( 5 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+script = ExtResource( 6 )
+day_time = 0.05
