@@ -4,6 +4,8 @@ var playerId
 
 var language
 
+var flashLight = true
+
 var userType = 2 #0 = Server / 1 = Client
 
 var playerCount = 0

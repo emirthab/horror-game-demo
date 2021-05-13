@@ -37,4 +37,10 @@ cast_to = Vector3( 0, 0, -3 )
 [node name="SpeedLimit" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="oil_lamp" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.281237, 0.54881, -1.10128 )
+visible = false
+light_color = Color( 0.945098, 0.607843, 0.176471, 1 )
+light_energy = 5.73
 [connection signal="timeout" from="SpeedLimit" to="." method="_on_SpeedLimit_timeout"]

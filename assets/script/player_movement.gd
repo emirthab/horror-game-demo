@@ -122,6 +122,17 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sensivity))
 		$pivot.rotate_x(deg2rad(-event.relative.y * mouse_sensivity))
 		$pivot.rotation.x = clamp($pivot.rotation.x,deg2rad(-90),deg2rad(90))
+	
+	if Input.is_action_just_pressed("toggle_flashlight"):
+		if Globals.flashLight == true:
+			
+			if $oil_lamp.visible == true:
+				$oil_lamp.visible = false
+				rpc("flashLight","false")
+				
+			elif $oil_lamp.visible == false:
+				$oil_lamp.visible = true
+				rpc("flashLight","true")
 
 func speedLimit(delta):
 	
