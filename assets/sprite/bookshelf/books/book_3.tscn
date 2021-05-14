@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/geometry/article/bookshelf/book_3/Book_closed_small.fbx" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pull"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0338642, 0, 0 ), Vector3( -0.0485163, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "push"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.0485163, 0, 0 ), Vector3( -0.0338642, 0, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.0639991, 0.00901504, 0.0462175 )
+
+[node name="book_3" instance=ExtResource( 1 )]
+transform = Transform( 4.13443e-14, 2.5377e-07, 1.55763, 1.55763, -2.5377e-07, 0, 2.5377e-07, 1.55763, -2.5377e-07, -0.0338642, 0, 0 )
+
+[node name="Book_closed_Small2" parent="Alchemy_Set/Books" index="0"]
+transform = Transform( 3.54129, -2.84217e-13, 3.32037e-19, 2.84217e-13, 3.54129, 5.11591e-13, 2.30393e-19, 4.54747e-13, 3.54129, 0.0146893, -0.00576831, -0.104416 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+anims/pull = SubResource( 1 )
+anims/push = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, -4.74338e-20, 0, 1, 0, -5.0822e-21, 0, 1, 0.014585, 0.0117749, 0.0291927 )
+shape = SubResource( 3 )

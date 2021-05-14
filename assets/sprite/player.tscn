@@ -20,14 +20,14 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.52 )
 
 [node name="raycast_up" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.454717, -0.515829 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.454717, -0.291324 )
 enabled = true
-cast_to = Vector3( 0, 0, -0.2 )
+cast_to = Vector3( 0, 0, -0.4 )
 
 [node name="pivot" type="Spatial" parent="."]
 
 [node name="Camera" type="Camera" parent="pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665092, -0.479146 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665092, -0.261783 )
 
 [node name="Aim" type="RayCast" parent="pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663404, -0.485361 )

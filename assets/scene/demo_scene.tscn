@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/script/demo_scene.gd" type="Script" id=1]
 [ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sprite/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui/ui_in_game.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/script/world_environment.gd" type="Script" id=6]
+[ext_resource path="res://assets/sprite/bookshelf/bookshelf.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -175,3 +176,9 @@ keyName = "kitchen"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 script = ExtResource( 6 )
 day_time = 0.05
+
+[node name="bookshelf" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.7067, 0, 0, 0, 1.7067, 0, 0, 0, 1.7067, 2.01143, -0.0191631, 7.53458 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27375, 1.08665, 7.95714 )
