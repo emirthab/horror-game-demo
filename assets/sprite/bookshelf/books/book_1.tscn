@@ -5,7 +5,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "pull"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
+tracks/0/path = NodePath("bookA31:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -14,12 +14,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -0.0221742, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( -0.0371335, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
+tracks/0/path = NodePath("bookA31:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -28,13 +28,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -0.0221742, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.0371335, 0, 0 ) ]
 }
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.0905639, 0.12247, 0.0214242 )
 
 [node name="book_1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0221742, 0, 0 )
 
 [node name="bookA31" parent="." index="0"]
 transform = Transform( 12.6489, 0, 0, 0, 12.6489, 0, 0, 0, 12.6489, 0, 0, 0 )

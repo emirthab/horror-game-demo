@@ -10,7 +10,6 @@ var secretBook
 
 func _ready():
 	get_tree().connect("network_peer_connected",self,"_player_connected")
-	print(str("id= ",Globals.playerId))
 	if Globals.playerId == 1:
 		assignSecretBook()
 
@@ -29,11 +28,11 @@ func _ready():
 	
 func _input(event):
 	if Input.is_action_just_pressed("pickUp"):
-		if Globals.getAimObject() == $StaticBody && open == false:
+		if Globals.getAimObject() == get_node(str("BOOKS/",secretBook,"/StaticBody")) && open == false:
 			if $AnimationPlayer.is_playing() == false:
 				rpc("openBookshelf")
 
-remote func openBookshelf():
+remotesync func openBookshelf():
 	get_node(str("BOOKS/",secretBook,"/AnimationPlayer")).play("push")
 	timer.start()
 	open = true

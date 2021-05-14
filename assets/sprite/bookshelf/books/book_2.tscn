@@ -38,7 +38,7 @@ extents = Vector3( 0.104717, 0.135544, 0.0342336 )
 [node name="book_2" instance=ExtResource( 1 )]
 
 [node name="Alchemy_Set" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0397291, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00397291, 0, 0 )
 
 [node name="Book_closed_Big2" parent="Alchemy_Set/Books" index="0"]
 transform = Transform( 1.93757e-13, 1.18927e-06, 7.33836, 7.29971, -1.18927e-06, 0, 1.18927e-06, 7.29971, -1.19557e-06, 0.0217809, 0.0341329, -0.0269192 )

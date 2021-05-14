@@ -5,7 +5,7 @@ export(String) var keyName
 
 var outlineMaterial = SpatialMaterial.new()
 var mainMaterial = preload("res://assets/geometry/article/key/Key.material")
-onready var UI = get_tree().get_current_scene().get_node("UI")
+onready var UI = get_tree().get_current_scene().get_node(str(Globals.scenename,"/UI"))
 onready var bottom_info = str(Language.get(keyName)," ",Language.get("key"))
 
 func _ready():

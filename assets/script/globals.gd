@@ -4,6 +4,8 @@ var playerId
 
 var language
 
+var scenename = "demo_scene"
+
 var flashLight = true
 
 var userType = 2 #0 = Server / 1 = Client
@@ -18,9 +20,8 @@ signal _on_aim_entered(body)
 signal _on_aim_exited(body)
 
 func getAimObject() -> Object:
-	if get_tree().get_current_scene().has_node(str(playerId)):
-		var raycast = get_tree().get_current_scene().get_node(str((playerId),"/pivot/Aim"))
-		
+	if get_tree().get_current_scene().has_node(str(scenename,"/",playerId)):
+		var raycast = get_tree().current_scene.get_node(str(scenename,"/",playerId,"/pivot/Aim"))
 		if raycast.is_colliding():
 			return raycast.get_collider()
 		else:
@@ -28,4 +29,5 @@ func getAimObject() -> Object:
 	else:
 		return null
 		
+
 
