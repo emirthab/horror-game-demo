@@ -7,7 +7,7 @@ func _ready():
 func _on_Create_Server_pressed():
 	#usertype 0 for Server
 	Globals.userType = 0
-	var scene = "res://assets/scene/demo_scene.tscn"
+	var scene = "res://assets/scene/game.tscn"
 	get_tree().change_scene(scene)
 	var lang = str($language.get_item_text($language.get_item_index($language.get_selected_id())))
 	lang = lang.replace(" ","")
@@ -18,7 +18,7 @@ func _on_Join_Server_pressed():
 	#usertype 1 for Client
 	Globals.joinIp = $Multiplayer_Configure/join_ip.text
 	Globals.userType = 1
-	var scene = "res://assets/scene/demo_scene.tscn"
+	var scene = "res://assets/scene/game.tscn"
 	get_tree().change_scene(scene)
 	var lang = str($language.get_item_text($language.get_item_index($language.get_selected_id())))
 	lang = lang.replace(" ","")

@@ -5,14 +5,16 @@ var timer2 = Timer.new()
 
 var open = false
 
-var secretIndex
 var secretBook
+
+
 func _ready():
-	var count = $BOOKS.get_child_count()
-	randomize()
-	secretIndex = randi() %count
-	secretBook = $BOOKS.get_child(secretIndex).name
-	changeMaterial()
+	get_tree().connect("network_peer_connected",self,"_player_connected")
+	print(str("id= ",Globals.playerId))
+	if Globals.playerId == 1:
+		assignSecretBook()
+
+
 	#Bookshelf opening cast time
 	timer.wait_time = 1.0
 	timer.connect("timeout",self,"timeout") 
@@ -29,11 +31,12 @@ func _input(event):
 	if Input.is_action_just_pressed("pickUp"):
 		if Globals.getAimObject() == $StaticBody && open == false:
 			if $AnimationPlayer.is_playing() == false:
-				get_node(str("BOOKS/",secretBook,"/AnimationPlayer")).play("push")
-				timer.start()
-				open = true
+				rpc("openBookshelf")
 
-
+remote func openBookshelf():
+	get_node(str("BOOKS/",secretBook,"/AnimationPlayer")).play("push")
+	timer.start()
+	open = true
 
 func timeout():
 	$AnimationPlayer.play("rotate_1")
@@ -45,12 +48,30 @@ func timeout2():
 	get_node(str("BOOKS/",secretBook,"/AnimationPlayer")).play("pull")
 
 
+func assignSecretBook():
+	var count = $BOOKS.get_child_count()
+	randomize()
+	var secretIndex = randi() %count
+	secretBook = $BOOKS.get_child(secretIndex).name
+	
+	changeMaterial()
+
+func _player_connected(id):
+	if Globals.playerId == 1:
+		rpc("setSecretBook",secretBook)
+
+
+remote func setSecretBook(variable):
+	secretBook = variable
+	changeMaterial()
+
+
 
 # ! FOR DEBUG !
 func changeMaterial():
 
 	var mat = preload("res://assets/material_shader/debug_secret_book.material")
-	var index = $BOOKS.get_child(secretIndex)
+	var index = $BOOKS.get_node(secretBook)
 	
 	for i in index.get_child_count():
 		
