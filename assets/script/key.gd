@@ -59,9 +59,6 @@ func _input(event):
 	if Input.is_action_just_pressed("pickUp"):
 		if Globals.getAimObject() == self:
 			Globals.ownedKeys.append(keyId)
-			# indexing keys in the inventory
-			Globals.make_Array_Key_List()
-			# Rpc function is not working, getKey() funtion never runs			
 			rpc("getKey")
 			UI.set_bottom_info("")
 		

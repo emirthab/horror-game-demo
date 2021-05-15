@@ -64,14 +64,11 @@ func getAimObject() -> Object:
 			return null
 	else:
 		return null
-		
+
 # indexing keys we have
 func make_Array_Key_List():
 	if ownedKeys.size() > 0 :
 		key_Message = ""
 		for i in ownedKeys.size():
-			if i < ownedKeys.size():
-				ownedKeys[i] =  str("room_",i)
-				key_Message += " "+str(Language.get(ownedKeys[i])," ",Language.get("key"))
-				i= i + 1 
-			
+			var roomName = Language.get(str("room_",ownedKeys[i]))
+			key_Message += str(" ",roomName," ",Language.get("key"),"\n")

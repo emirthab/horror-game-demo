@@ -95,9 +95,10 @@ func handle_movement(delta):
 	move_and_slide(velocity,Vector3.UP)
 	
 	# listing keys when pressed
-	if Input.is_action_just_pressed("list_keys"):
+	if Input.is_action_just_pressed("keyInventory"):
+		Globals.make_Array_Key_List()
 		UI.set_bottom_info(Globals.key_Message)
-	if Input.is_action_just_released("list_keys"):
+	if Input.is_action_just_released("keyInventory"):
 		UI.set_bottom_info("")
 		
 
