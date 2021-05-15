@@ -11,7 +11,7 @@
 extends Spatial
 
 export(int) var keyId
-export(String) var keyName
+onready var keyName = str("room_",keyId)
 
 var outlineMaterial = SpatialMaterial.new()
 var mainMaterial = preload("res://assets/geometry/article/key/Key.material")

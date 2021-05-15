@@ -14,7 +14,8 @@
 extends Node
 
 var key
-var kitchen
+var room_0
+var room_1
 var room
 
 
@@ -31,5 +32,6 @@ func loadLangs():
 
 		print("OKKK")
 		key = config.get_value("lang","key")
-		kitchen = config.get_value("lang","kitchen")
+		room_0 = config.get_value("lang","room_0")
+		room_1 = config.get_value("lang","room_1")
 		room = config.get_value("lang","room")

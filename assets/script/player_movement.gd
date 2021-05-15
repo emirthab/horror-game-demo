@@ -19,6 +19,7 @@ var canFast = true
 var lastTarget = null
 
 func _ready():
+	
 	print(Globals.language)
 	#Mouse visibility
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 

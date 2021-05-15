@@ -163,11 +163,9 @@ doorId = 1
 [node name="Key" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.18911, 0, -1.88014, 0, 2.88568, 0, 1.88014, 0, 2.18911, 0.664759, 0.802575, -0.113724 )
 keyId = 1
-keyName = "kitchen"
 
 [node name="Key2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.88568, 0, 0, 0, 2.88568, 0, 0, 0, 2.88568, -0.125644, 0.801, -0.0433817 )
-keyName = "kitchen"
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
