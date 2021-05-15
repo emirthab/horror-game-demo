@@ -1,8 +1,9 @@
 extends Spatial
 
-var scene = preload("res://assets/scene/demo_scene.tscn").instance()
-
 func _ready():
+	
+	#connect networking basis signals (connected,disconnected)
+
 	get_tree().connect("network_peer_connected",self,"_player_connected")
 	get_tree().connect("network_peer_disconnected",self,"_player_disconnected")
 
@@ -30,7 +31,7 @@ func multiplayerCreate(type):
 		print("host başlatılıyor...")
 		var id = get_tree().get_network_unique_id()
 		Globals.playerId = id
-		add_child(scene)
+		add_child(Globals.scene)
 		player.set_name(str(id))
 		player.set_network_master(id)
 		player.global_transform = $demo_scene/playerPosition.global_transform
@@ -44,7 +45,7 @@ func multiplayerCreate(type):
 		get_tree().set_network_peer(net)
 		var id = get_tree().get_network_unique_id()
 		Globals.playerId = id
-		add_child(scene)
+		add_child(Globals.scene)
 		player.set_name(str(id))
 		player.set_network_master(id)
 		player.global_transform = $demo_scene/playerPosition.global_transform
@@ -53,17 +54,20 @@ func multiplayerCreate(type):
 	addPlayerCount(1)
 
 
-
+# IMPORTANT ---------------------------------------------
+# If you join as a client, players entering before you,
+# will be triggered in the "_player_connected" function.
+# -------------------------------------------------------
 func _player_connected(id):
 	createPlayer(id)
 	addPlayerCount(1)
 
-
+# remove disconnected "puppet_player" object on scene and down playercount.
 func _player_disconnected(id):
 	$demo_scene.get_node(str(id)).queue_free()
 	downPlayerCount(1)
 
-
+#Change player count on "Globals.gd".
 remotesync func addPlayerCount(size):
 	Globals.playerCount += size
 	

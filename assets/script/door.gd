@@ -1,3 +1,18 @@
+# --------- Door - System -------- #
+
+#If the "pickUp" button is pressed while looking at the door, 
+#it first checks whether the door is locked or not.
+#If the door is locked, it checks the "ownedKeys" variable in the "Globals.gd" script.
+#If there is an id matching the id of the door in the "ownedKeys" array, the door is unlocked.
+
+#For example:
+#Globals.ownedKeys = [0,1,2]
+#If doorId = 0 or 1 or 2, the door will open.
+#If doorId = 3 or 4 or 5 ... the door will not open.
+# -------------------------------- #
+
+
+
 extends Spatial
 
 export(bool) var lock = false
@@ -25,7 +40,9 @@ func _input(event):
 					rpc("_doorUnlock")
 				else:
 					rpc("_doorNoKey")
-		
+
+
+#The "RPC" function opens or closes the door on both this client and other clients.
 
 remotesync func _doorEvent(_event):
 	if _event == "open":
@@ -35,10 +52,16 @@ remotesync func _doorEvent(_event):
 		open = false
 		$AnimationPlayer.play("closing")
 
+
+#Unlocking the door only (the door won't open or close)
+
 remotesync func _doorUnlock():
 	lock = false
-	#unlock sound
+	#TODO unlock sound
+	
+#It works when the door is locked and there is no key. Shaking animation etc.
+
 remotesync func _doorNoKey():
 	$AnimationPlayer.play("shake")
-	#cant unlock sound
+	#TODO cant unlock sound
 	

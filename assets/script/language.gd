@@ -1,3 +1,16 @@
+# --------- Language - System -------- #
+#This script is included in autoload, 
+#"Language.<variableName>" It can be used in other scripts using.
+
+#All files with cfg extension in the Languages file are 
+#scanned and imported to game as language option.
+
+#All variables (key name, item name, etc.) with localization feature that 
+#the player can see from other scripts will be pulled from here.
+#Example: look --> "bottom_info" variable on "key.gd"
+# -------------------------------- #
+
+
 extends Node
 
 var key

@@ -169,8 +169,9 @@ func animationNetwork():
 			rpc("setAnimation","idle")
 	else:
 		rpc("setAnimation","jump")
-	
-	
+
+
+#send signal to "Globals.gd" when aim entered or exited.
 func aimTrigger():
 	var aim = $pivot/Aim
 	if aim.is_colliding():
