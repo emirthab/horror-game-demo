@@ -3,10 +3,10 @@ extends Spatial
 func _ready():
 	
 	#connect networking basis signals (connected,disconnected)
-
+	
 	get_tree().connect("network_peer_connected",self,"_player_connected")
 	get_tree().connect("network_peer_disconnected",self,"_player_disconnected")
-
+	
 	#if server
 	if Globals.userType == 0:
 		multiplayerCreate("server")

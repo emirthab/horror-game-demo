@@ -31,8 +31,10 @@ var userType = 2
 var playerCount = 0
 var joinIp = "127.0.0.1"
 
-
+# array for keys in the inventory
 var ownedKeys = []
+# default message in key list we need to assign a value in language.
+var key_Message = "No_key"
 
 #The signal is sent here from the player_movement.gd script. 
 #These signals can be connect to other scripts.
@@ -63,5 +65,13 @@ func getAimObject() -> Object:
 	else:
 		return null
 		
-
-
+# indexing keys we have
+func make_Array_Key_List():
+	if ownedKeys.size() > 0 :
+		key_Message = ""
+		for i in ownedKeys.size():
+			if i < ownedKeys.size():
+				ownedKeys[i] =  str("room_",i)
+				key_Message += " "+str(Language.get(ownedKeys[i])," ",Language.get("key"))
+				i= i + 1 
+			

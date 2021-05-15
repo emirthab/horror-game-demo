@@ -17,10 +17,13 @@ var speedTime = 0
 var canFast = true
 
 var lastTarget = null
+# Accessing variables in uı node
+onready var UI = get_tree().get_current_scene().get_node(str(Globals.scenename,"/UI"))
 
 func _ready():
 	
 	print(Globals.language)
+
 	#Mouse visibility
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
 	
@@ -90,7 +93,13 @@ func handle_movement(delta):
 	
 	#Apply mechanics to move.
 	move_and_slide(velocity,Vector3.UP)
-
+	
+	# listing keys when pressed
+	if Input.is_action_just_pressed("list_keys"):
+		UI.set_bottom_info(Globals.key_Message)
+	if Input.is_action_just_released("list_keys"):
+		UI.set_bottom_info("")
+		
 
 func _input(event):
 
