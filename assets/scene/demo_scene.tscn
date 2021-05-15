@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprite/Key.tscn" type="PackedScene" id=3]
@@ -22,10 +22,18 @@ albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 5, 5, 5 )
 uv1_triplanar = true
 
+[sub_resource type="Environment" id=5]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 0.670588, 0.670588, 0.670588, 1 )
+
 [node name="demo_scene" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.975029, 0.222076, 0, -0.222076, 0.975029, 0, 12.4835, 4.38159 )
+transform = Transform( 1, 0, 0, 0, 0.817909, 0.575348, 0, -0.575348, 0.817909, 0, 12.4835, 4.38159 )
+light_color = Color( 0.933333, 0.913725, 0.882353, 1 )
+shadow_enabled = true
+shadow_color = Color( 0.14902, 0.145098, 0.145098, 1 )
 
 [node name="floor" type="StaticBody" parent="."]
 
@@ -170,6 +178,7 @@ keyId = 1
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
 script = ExtResource( 6 )
 day_time = 0.05
 
