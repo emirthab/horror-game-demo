@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/material_shader/texture/grid.png" type="Texture" id=2]
+[ext_resource path="res://assets/material_shader/texture/grids/grid.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprite/Key.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprite/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui/ui_in_game.tscn" type="PackedScene" id=5]
@@ -38,7 +38,7 @@ shadow_color = Color( 0.14902, 0.145098, 0.145098, 1 )
 [node name="floor" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="floor"]
-transform = Transform( 20.0446, 0, 0, 0, 20.0446, 0, 0, 0, 20.0446, 0.0305915, -0.0191631, 0.000558734 )
+transform = Transform( 20.0446, 0, 0, 0, 20.0446, 0, 0, 0, 20.0446, -0.0140173, -0.0191631, -0.0125929 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 

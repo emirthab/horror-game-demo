@@ -49,5 +49,3 @@ anims/push = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000623845, 0.00114833, 0 )
 shape = SubResource( 3 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="." index="3"]
