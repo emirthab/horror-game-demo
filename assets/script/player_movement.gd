@@ -2,7 +2,7 @@ extends KinematicBody
 
 var velocity = Vector3()
 var direction = Vector3()
-var speed = 1.4
+var speed = 2.4
 var acceleration = 5
 var air_acceleration : float = 5
 var mouse_sensivity = 0.1
@@ -117,11 +117,11 @@ func _input(event):
 	#Speed Up.
 	if Input.is_key_pressed(KEY_SHIFT):
 		if canFast == true:
-			speed = 3.7
+			speed = 4.7
 		else:
-			speed = 1.4
+			speed = 2.4
 	else:
-		speed = 1.4
+		speed = 2.4
 	
 
 

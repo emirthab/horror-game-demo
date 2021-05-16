@@ -64,7 +64,7 @@ func _player_connected(id):
 
 # remove disconnected "puppet_player" object on scene and down playercount.
 func _player_disconnected(id):
-	$demo_scene.get_node(str(id)).queue_free()
+	get_node(str(Globals.scenename,id)).queue_free()
 	downPlayerCount(1)
 
 #Change player count on "Globals.gd".
@@ -80,6 +80,6 @@ func createPlayer(id):
 	var player = load("res://assets/sprite/puppet_player.tscn").instance()
 	player.set_name(str(id))
 	player.set_network_master(id)
-	player.global_transform = $demo_scene/playerPosition.global_transform
+	player.global_transform = get_node(str(Globals.scenename,"/playerPosition")).global_transform
 	print("oyuncu baglandi ", id)
-	$demo_scene.add_child(player)
+	get_node(Globals.scenename).add_child(player)
