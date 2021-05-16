@@ -64,7 +64,7 @@ func _player_connected(id):
 
 # remove disconnected "puppet_player" object on scene and down playercount.
 func _player_disconnected(id):
-	get_node(str(Globals.scenename,id)).queue_free()
+	get_node(str(Globals.scenename,"/",id)).queue_free()
 	downPlayerCount(1)
 
 #Change player count on "Globals.gd".
