@@ -25,7 +25,7 @@ var isAiming = false
 
 func _input(event):
 	if Input.is_action_just_pressed("pickUp"):
-		if Globals.getAimObject() == $pivot/KinematicBody:
+		if Globals.getAimObject() == $pivot/body:
 			if lock == false:
 				if open == true:
 					rpc("_doorEvent","close")

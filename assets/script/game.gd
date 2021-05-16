@@ -34,8 +34,8 @@ func multiplayerCreate(type):
 		add_child(Globals.scene)
 		player.set_name(str(id))
 		player.set_network_master(id)
-		player.global_transform = $demo_scene/playerPosition.global_transform
-		$demo_scene.add_child(player)
+		player.global_transform = get_node(str(Globals.scenename,"/playerPosition")).global_transform
+		get_node(Globals.scenename).add_child(player)
 
 	elif type == "client":
 		#ip set to join_ip input
@@ -48,8 +48,8 @@ func multiplayerCreate(type):
 		add_child(Globals.scene)
 		player.set_name(str(id))
 		player.set_network_master(id)
-		player.global_transform = $demo_scene/playerPosition.global_transform
-		$demo_scene.add_child(player)
+		player.global_transform = get_node(str(Globals.scenename,"/playerPosition")).global_transform
+		get_node(Globals.scenename).add_child(player)
 		
 	addPlayerCount(1)
 

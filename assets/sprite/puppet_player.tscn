@@ -18,11 +18,8 @@ shape = SubResource( 1 )
 [node name="the_nun" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.14146, 0, -3.71935e-07, 0, 1.14146, 0, 3.71935e-07, 0, -1.14146, 0.12975, -0.925982, 0 )
 
-[node name="Skeleton" parent="the_nun/Armature" index="0"]
-bones/10/bound_children = [ NodePath("BoneAttachment") ]
-
 [node name="BoneAttachment" type="BoneAttachment" parent="the_nun/Armature/Skeleton" index="1"]
-transform = Transform( 0.295955, -0.0257034, -0.954857, -0.90683, 0.306513, -0.289321, 0.300112, 0.95152, 0.0674057, 0.158979, 0.0310124, -0.845123 )
+transform = Transform( 0.25791, 0.208062, -0.943501, -0.895492, 0.418105, -0.152587, 0.362735, 0.884251, 0.294152, 0.270282, 0.0362522, -0.883639 )
 bone_name = "mixamorig_left_hand"
 
 [node name="oil_lamp" parent="the_nun/Armature/Skeleton/BoneAttachment" instance=ExtResource( 3 )]

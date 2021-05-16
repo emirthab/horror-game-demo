@@ -15,9 +15,9 @@ var language
 #The "scenename" that will be placed under the game object where the network is installed. 
 #get_tree().get_current_scene().get_node(str("Globals.scenename", "node name"))
 
-var scenename = "demo_scene"
+var scenename = "demo_scene_2"
 
-var scene = preload("res://assets/scene/demo_scene.tscn").instance()
+var scene = preload("res://assets/scene/demo_map.tscn").instance()
 
 var flashLight = true
 
