@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/material_shader/texture/plan_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprite/demo/candlestick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprite/puppet_player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprite/demo/desk.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/material_shader/texture/grids/Dark/texture_07.png" type="Texture" id=5]
-[ext_resource path="res://assets/material_shader/texture/grids/Light/texture_08.png" type="Texture" id=6]
 [ext_resource path="res://assets/material_shader/texture/grids/Red/texture_08.png" type="Texture" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -22,12 +21,6 @@ size = Vector2( 4, 4 )
 background_color = Color( 0.792157, 0.905882, 0.858824, 1 )
 background_energy = 0.0
 ambient_light_color = Color( 0.74902, 0.72549, 0.72549, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.443137, 0.443137, 0.443137, 1 )
-albedo_texture = ExtResource( 6 )
-uv1_triplanar = true
-uv2_scale = Vector3( 0, 0, 0 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.824219, 0.824219, 0.824219, 1 )
@@ -51,17 +44,21 @@ uv1_scale = Vector3( 30, 20, 10 )
 [node name="demo" type="Spatial"]
 
 [node name="playerPosition" type="Position3D" parent="."]
-transform = Transform( -0.586318, 0, -1.91047e-07, 0, 0.586318, 0, 1.91047e-07, 0, -0.586318, 4.69354, 1.73456, -37.1646 )
+transform = Transform( -0.586318, 0, -1.91047e-07, 0, 0.586318, 0, 1.91047e-07, 0, -0.586318, 1.7474, 0.359764, -37.1646 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.204148, 0, -0.653634, 0, 0.684773, 0, 0.653634, 0, 0.204148, 6.05142, 1.64893, -23.3393 )
+transform = Transform( 0.204148, 0, -0.653634, 0, 0.684773, 0, 0.653634, 0, 0.204148, 6.05142, 0.274134, -23.3393 )
 
 [node name="plan" type="CSGMesh" parent="."]
 transform = Transform( 32.414, 0, 0, 0, 32.414, 0, 0, 0, 32.414, 0, -0.46, 0 )
 mesh = SubResource( 2 )
 
+[node name="plan2" type="CSGMesh" parent="."]
+transform = Transform( 32.414, 0, 0, 0, 32.414, 0, 0, 0, 32.414, -153.686, -0.46, 0 )
+mesh = SubResource( 2 )
+
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.927458, -0.320067, -0.193335, 0, -0.517041, 0.855961, -0.373927, 0.793868, 0.479534, 4.69354, 24.9119, -37.1646 )
+transform = Transform( -0.927458, -0.320067, -0.193336, 0, -0.517041, 0.855961, -0.373927, 0.793868, 0.479534, 1.7474, 23.5371, -37.1646 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -70,595 +67,108 @@ environment = SubResource( 3 )
 transform = Transform( -0.586318, 0, -1.91047e-07, 0, 0.586318, 0, 1.91047e-07, 0, -0.586318, 4.69354, 1.02162, -37.1646 )
 
 [node name="map" type="Spatial" parent="map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0 )
+transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 0.02, 0 )
 
 [node name="left" type="Spatial" parent="map/map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25532 )
-
-[node name="rod" type="Spatial" parent="map/map/left"]
-
-[node name="CSGCylinder" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 5.37819, 11.3182 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder7" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 0.913822, 0, 0.406115, 0, 1, 0, -0.406115, 0, 0.913822, -22.7429, 5.37819, 11.8771 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder4" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 23.2992, 5.37819, 11.3182 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder5" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09507, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder6" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder3" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder11" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 0.55664, 10.8388 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder12" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09507, 0.55664, 10.8388 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder13" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 0.55664, 10.8388 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder14" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 0.55664, 10.8388 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder8" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 0.55664, 11.3182 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder9" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 0.913822, 0, 0.406115, 0, 1, 0, -0.406115, 0, 0.913822, -22.743, 0.644158, 11.8769 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder10" type="CSGCylinder" parent="map/map/left/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 0.55664, 11.3182 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="rod2" type="Spatial" parent="map/map/left"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.50187 )
-
-[node name="CSGCylinder" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 5.37819, 9.52471 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder7" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1633, 5.37819, 8.74131 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder4" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 5.37819, 9.52471 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 5.37819, 9.51391 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder5" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09507, 5.37819, 9.51391 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder6" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 5.37819, 9.51391 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder3" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 5.37819, 9.51391 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder11" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 0.55664, 9.51391 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder12" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09507, 0.55664, 9.51391 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder13" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 0.55664, 9.51391 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder14" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 0.55664, 9.51391 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder8" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 0.55664, 9.52471 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder9" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1634, 0.644158, 8.74111 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder10" type="CSGCylinder" parent="map/map/left/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 0.55664, 9.52471 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, -1.25531 )
 
 [node name="desk" type="Spatial" parent="map/map/left"]
 
 [node name="desk2" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 1.2229, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 6.24771, -2.3448, 7.32115 )
 
 [node name="desk9" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -1.45276, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 3.57205, -2.3448, 7.32116 )
 
 [node name="desk10" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.25246, 0, 7.32114 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.772349, -2.3448, 7.32116 )
 
 [node name="desk11" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -6.92812, 0, 7.32114 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -1.90331, -2.3448, 7.32119 )
 
 [node name="desk12" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.61144, 0, 7.32114 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.58663, -2.3448, 7.32114 )
 
 [node name="desk13" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -12.0213, 0, 7.32114 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -6.99649, -2.3448, 7.32114 )
 
 [node name="desk14" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -14.6438, 0, 7.32114 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.61899, -2.3448, 7.32114 )
 
 [node name="desk3" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 3.77452, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 8.79933, -2.3448, 7.32115 )
 
 [node name="desk4" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 6.3793, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 11.4041, -2.3448, 7.32115 )
 
 [node name="desk5" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 9.12584, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 14.1506, -2.3448, 7.32115 )
 
 [node name="desk6" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 11.7306, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 16.7554, -2.3448, 7.32115 )
 
 [node name="desk7" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 14.2114, 0, 7.32115 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 19.2362, -2.3448, 7.32115 )
 
 [node name="desk8" parent="map/map/left/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 16.8339, 0, 7.32115 )
-
-[node name="candles" type="Spatial" parent="map/map/left"]
-
-[node name="stick" parent="map/map/left/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, 0, -2.84217e-14, 0, 1.3, 0, 2.84217e-14, 0, 1.3, 4.39727, 0, 10.9239 )
-
-[node name="stick4" parent="map/map/left/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, 0, -2.84217e-14, 0, 1.3, 0, 2.84217e-14, 0, 1.3, -4.52762, 0, 10.9239 )
-
-[node name="stick5" parent="map/map/left/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, 0, -2.84217e-14, 0, 1.3, 0, 2.84217e-14, 0, 1.3, -11.971, 0, 10.9239 )
-
-[node name="stick2" parent="map/map/left/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, 0, -2.84217e-14, 0, 1.3, 0, 2.84217e-14, 0, 1.3, 11.9706, 0, 10.9239 )
-
-[node name="stick3" parent="map/map/left/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, 0, -2.84217e-14, 0, 1.3, 0, 2.84217e-14, 0, 1.3, 18.874, 0, 10.9239 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 21.8587, -2.3448, 7.32117 )
 
 [node name="right" type="Spatial" parent="map/map"]
 transform = Transform( 1, -1.06173e-13, -3.25841e-07, 0, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 0, 0, 1.20543 )
-
-[node name="rod" type="Spatial" parent="map/map/right"]
-
-[node name="CSGCylinder" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 5.37819, 11.3182 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder4" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 5.37819, 11.3182 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder5" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09507, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder6" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder3" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 5.37819, 10.8388 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder17" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 7.89762, 0.556644, 10.8414 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder18" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -8.09507, 0.556644, 10.8414 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder19" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -15.2542, 0.556644, 10.8414 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder20" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 15.6716, 0.556644, 10.8414 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder7" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126903, 0.55664, 11.3182 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder9" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 0.55664, 11.3182 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder15" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 0.93741, 6.43745e-19, 0.348228, 1.13467e-07, 1, -3.05447e-07, 0.348228, -3.25841e-07, -0.93741, -22.7429, 5.37819, 11.782 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder16" type="CSGCylinder" parent="map/map/right/rod"]
-transform = Transform( 0.93741, 6.43745e-19, 0.348228, 1.13467e-07, 1, -3.05447e-07, 0.348228, -3.25841e-07, -0.93741, -22.743, 0.644161, 11.7822 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="rod2" type="Spatial" parent="map/map/right"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88567e-06, 2.88567e-06, 8.85606 )
-
-[node name="CSGCylinder" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126904, 5.37819, 9.06975 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder4" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 5.37819, 9.06975 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89762, 5.37819, 9.06365 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder5" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.09508, 5.37819, 9.06364 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder6" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2542, 5.37819, 9.06365 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder3" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6716, 5.37819, 9.06364 )
-use_collision = true
-radius = 1.20445
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder17" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 7.89762, 0.556643, 9.06625 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder18" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -8.09508, 0.556643, 9.06624 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder19" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -15.2542, 0.556643, 9.06625 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder20" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 15.6716, 0.556643, 9.06625 )
-use_collision = true
-radius = 1.4
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder8" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -21.8787, 5.37819, 8.37975 )
-use_collision = true
-radius = 1.91087
-height = 10.9501
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder7" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126904, 0.556639, 9.06975 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder9" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2992, 0.556639, 9.06975 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
-
-[node name="CSGCylinder10" type="CSGCylinder" parent="map/map/right/rod2"]
-transform = Transform( 1, 6.43745e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, -21.8787, 0.637042, 8.37975 )
-use_collision = true
-radius = 2.15
-height = 1.307
-smooth_faces = false
-material = SubResource( 4 )
 
 [node name="desk" type="Spatial" parent="map/map/right"]
 transform = Transform( 1, 7.13665e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 4.76837e-06, 3.69549e-06, 11.3285 )
 
 [node name="desk2" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 1.2229, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 6.2477, -2.3448, 7.32115 )
 
 [node name="desk9" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -1.45276, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 3.57205, -2.3448, 7.32116 )
 
 [node name="desk10" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.25246, 0, 7.32114 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 0.772346, -2.3448, 7.32114 )
 
 [node name="desk11" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -6.92812, 0, 7.32114 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, -1.90331, -2.3448, 7.32114 )
 
 [node name="desk12" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -9.61144, 0, 7.32114 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, -4.58663, -2.3448, 7.32114 )
 
 [node name="desk13" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -12.0213, 0, 7.32114 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, -6.99649, -2.3448, 7.32116 )
 
 [node name="desk14" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -14.6438, 0, 7.32114 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, -9.61899, -2.3448, 7.32114 )
 
 [node name="desk3" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 3.77452, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 8.79933, -2.3448, 7.32115 )
 
 [node name="desk4" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 6.3793, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 11.4041, -2.3448, 7.32115 )
 
 [node name="desk5" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 9.12584, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 14.1506, -2.3448, 7.32117 )
 
 [node name="desk6" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 11.7306, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 16.7554, -2.3448, 7.32117 )
 
 [node name="desk7" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 14.2114, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 19.2362, -2.3448, 7.32117 )
 
 [node name="desk8" parent="map/map/right/desk" instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 16.8339, 0, 7.32115 )
+transform = Transform( -1, -9.04729e-26, -3.25841e-07, 7.60785e-32, 1, 3.08149e-31, 3.25841e-07, 5.668e-34, -1, 21.8587, -2.3448, 7.32116 )
 
 [node name="candles" type="Spatial" parent="map/map/right"]
 transform = Transform( 1, 6.50485e-19, -3.25841e-07, -1.06172e-13, 1, -3.25841e-07, -3.25841e-07, -3.25841e-07, -1, 9.53674e-07, 8.34465e-07, 2.46074 )
 
 [node name="stick" parent="map/map/right/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, -1.61559e-27, -5.68434e-14, 1.61559e-27, 1.3, 0, 5.68434e-14, 0, 1.3, 4.39728, 0, -8.62756 )
-
-[node name="stick4" parent="map/map/right/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, -1.61559e-27, -5.68434e-14, 1.61559e-27, 1.3, 0, 5.68434e-14, 0, 1.3, -4.52761, 0, -8.62757 )
-
-[node name="stick5" parent="map/map/right/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, -1.61559e-27, -5.68434e-14, 1.61559e-27, 1.3, 0, 5.68434e-14, 0, 1.3, -11.971, 0, -8.62757 )
-
-[node name="stick2" parent="map/map/right/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, -1.61559e-27, -5.68434e-14, 1.61559e-27, 1.3, 0, 5.68434e-14, 0, 1.3, 11.9706, 0, -8.62757 )
-
-[node name="stick3" parent="map/map/right/candles" instance=ExtResource( 2 )]
-transform = Transform( 1.3, -1.61559e-27, -5.68434e-14, 1.61559e-27, 1.3, 0, 5.68434e-14, 0, 1.3, 18.874, 0, -8.62756 )
+transform = Transform( 1.3, -3.23117e-27, -2.84217e-14, -4.94511e-32, 1.3, 1.60237e-31, 2.84217e-14, 3.4283e-33, 1.3, 9.42209, -2.3448, -8.62755 )
 
 [node name="stairs_1" type="Spatial" parent="map/map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3104, 0, 0 )
 
 [node name="CSGBox2" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4409, 0.0443661, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.4657, -2.30043, -3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -666,7 +176,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox3" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1855, 0.132162, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.2103, -2.21263, -3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -674,7 +184,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox4" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.94503, 0.219958, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.9698, -2.12484, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -682,7 +192,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox5" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72327, 0.307754, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.7481, -2.03704, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -690,7 +200,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox6" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47904, 0.39607, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.5038, -1.94873, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -698,7 +208,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox7" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2523, 0.483235, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.2771, -1.86156, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -706,7 +216,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox8" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0063, 0.569895, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.0311, -1.7749, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -714,7 +224,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox9" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78973, 0.653997, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 13.8145, -1.6908, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.199
@@ -722,7 +232,7 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox10" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83971, 0.744141, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.8645, -1.60065, 3.8147e-06 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 4.53962
@@ -730,7 +240,8 @@ height = 0.0887322
 depth = 12.0056
 
 [node name="CSGBox19" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15571, 0.744141, 0 )
+transform = Transform( 1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, -7.15571, 0.744141, -3.8147e-06 )
+visible = false
 material_override = SubResource( 5 )
 use_collision = true
 width = 23.5019
@@ -738,7 +249,7 @@ height = 0.0887322
 depth = 28.6632
 
 [node name="CSGBox11" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81595, 0.471682, -6.09529 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.8408, -1.87311, -6.09528 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 4.7104
@@ -746,7 +257,7 @@ height = 0.943364
 depth = 0.27309
 
 [node name="CSGBox13" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81595, 0.471682, 6.12489 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.8408, -1.87311, 6.12489 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 4.7104
@@ -754,7 +265,7 @@ height = 0.943364
 depth = 0.27309
 
 [node name="CSGBox15" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.604, 0.00895172, 8.06175 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.62881, -2.33584, 8.06174 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 3.75496
@@ -762,7 +273,7 @@ height = 1.87087
 depth = 0.27309
 
 [node name="CSGBox14" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 0.937239, 0.348687, 0, -0.348687, 0.937239, 0, 0, 0, 1, 10.1594, 1.17407, -6.09529 )
+transform = Transform( 0.937239, 0.348687, 2.84217e-14, -0.348687, 0.937239, 0, 0, 7.10543e-14, 1, 15.1842, -1.17073, -6.09529 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.23139
@@ -770,7 +281,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGBox12" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 0.942455, 0.334333, 0, -0.334333, 0.942455, 0, 0, 0, 1, 9.97628, 0.149921, -6.09473 )
+transform = Transform( 0.942455, 0.334333, 2.84217e-14, -0.334333, 0.942455, 0, 5.68434e-14, 0, 1, 15.0011, -2.19487, -6.09473 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.08326
@@ -778,7 +289,7 @@ height = 0.943364
 depth = 0.27309
 
 [node name="CSGCylinder" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93688, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.9617, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -786,7 +297,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.35772, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 12.3825, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -794,7 +305,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder3" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7521, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 12.7769, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -802,7 +313,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder4" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14894, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 13.1737, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -810,7 +321,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder5" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57101, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 13.5958, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -818,7 +329,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder6" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03812, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.0629, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -826,7 +337,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder7" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47498, 1.08064, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.4998, -1.26416, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -834,7 +345,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder8" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87994, 0.934119, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.9047, -1.41068, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -842,7 +353,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder9" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3019, 0.789295, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.3267, -1.5555, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -850,7 +361,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder10" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7708, 0.61878, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.7956, -1.72602, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -858,7 +369,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGBox16" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80226, 1.55654, 6.12212 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.8271, -0.788256, 6.12214 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 4.64267
@@ -866,7 +377,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGBox21" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.61749, 1.55654, 7.55315 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.6423, -0.788256, 7.55317 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.59493
@@ -874,7 +385,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGBox17" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 0.937239, 0.348687, 0, -0.348687, 0.937239, 0, 0, 0, 1, 10.1594, 1.17407, 6.12212 )
+transform = Transform( 0.937239, 0.348687, 2.84217e-14, -0.348687, 0.937239, 0, 0, 7.10543e-14, 1, 15.1842, -1.17073, 6.12212 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.23139
@@ -882,7 +393,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGBox18" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 0.942455, 0.334333, 0, -0.334333, 0.942455, 0, 0, 0, 1, 9.97628, 0.149921, 6.12267 )
+transform = Transform( 0.942455, 0.334333, 2.84217e-14, -0.334333, 0.942455, 0, 5.68434e-14, 0, 1, 15.0011, -2.19487, 6.12267 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.08326
@@ -890,7 +401,7 @@ height = 0.943364
 depth = 0.27309
 
 [node name="CSGCylinder11" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93688, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.9617, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -898,7 +409,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder21" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.54746, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.5723, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -906,7 +417,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder22" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.54746, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.5723, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -914,7 +425,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder23" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1602, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.185, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -922,7 +433,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder24" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1602, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.185, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -930,7 +441,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder25" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76993, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.7947, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -938,7 +449,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder26" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76993, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.7947, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -946,7 +457,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder27" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38152, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.4063, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -954,7 +465,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder28" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38152, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.4063, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -962,7 +473,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder29" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99622, 1.23145, -6.08295 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.021, -1.11335, -6.08295 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -970,7 +481,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder30" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99622, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.021, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -978,7 +489,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder12" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.35772, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 12.3825, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -986,7 +497,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder13" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7521, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 12.7769, -1.11335, 6.13447 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -994,7 +505,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder14" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14894, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 13.1737, -1.11335, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1002,7 +513,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder15" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57101, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 13.5958, -1.11335, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1010,7 +521,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder16" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03812, 1.23145, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.0629, -1.11335, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1018,7 +529,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder17" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47498, 1.08064, 6.13445 )
+transform = Transform( 0.999965, 0.00698538, -0.00458852, -0.00697472, 0.999973, 0.00233797, 0.00460471, -0.00230591, 0.999987, 14.4998, -1.26416, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1026,7 +537,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder18" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87994, 0.934119, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 14.9047, -1.41068, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1034,7 +545,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder19" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3019, 0.789295, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.3267, -1.5555, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1042,7 +553,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder20" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7708, 0.61878, 6.13445 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 15.7956, -1.72602, 6.13445 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1050,7 +561,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder31" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 6.54909 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 6.54909 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1058,7 +569,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder32" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 6.9385 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 6.93852 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1066,7 +577,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder33" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 7.32576 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 7.32576 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1074,7 +585,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder34" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 7.71603 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 7.71603 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1082,7 +593,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder35" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 8.10444 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 8.10444 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1090,7 +601,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder36" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 8.48975 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64496, -1.15522, 8.48976 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1098,7 +609,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder37" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 4.62015, 1.18958, 6.12824 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.64495, -1.15522, 6.12823 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1106,7 +617,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGBox20" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.61459, 0.00895103, -8.03188 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.6394, -2.33584, -8.03188 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 3.75496
@@ -1114,7 +625,7 @@ height = 1.87087
 depth = 0.27309
 
 [node name="CSGBox22" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 1, 1.50996e-07, 3.89414e-07, -1.50996e-07, 1, 0, -3.89414e-07, -5.87999e-14, 1, 6.81285, 1.55654, -6.09225 )
+transform = Transform( 1, 1.50996e-07, 3.89414e-07, -1.50996e-07, 1, 0, -3.89414e-07, -5.87999e-14, 1, 11.8377, -0.788256, -6.09225 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 4.64267
@@ -1122,7 +633,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGBox23" type="CSGBox" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.62808, 1.55654, -7.52328 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65288, -0.788256, -7.52327 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 2.59493
@@ -1130,7 +641,7 @@ height = 0.136291
 depth = 0.27309
 
 [node name="CSGCylinder38" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -6.51922 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65553, -1.15522, -6.51922 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1138,7 +649,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder39" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -6.90863 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65553, -1.15522, -6.90863 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1146,7 +657,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder40" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -7.29589 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65553, -1.15522, -7.29588 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1154,7 +665,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder41" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -7.68616 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65553, -1.15522, -7.68616 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1162,7 +673,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder42" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -8.07457 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65555, -1.15522, -8.07457 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1170,7 +681,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder43" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -8.45988 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65555, -1.15522, -8.45988 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1178,7 +689,7 @@ height = 0.57618
 sides = 6
 
 [node name="CSGCylinder44" type="CSGCylinder" parent="map/map/stairs_1"]
-transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 4.63074, 1.18958, -6.09837 )
+transform = Transform( 2.26494e-07, 1.50996e-07, -1, 2.46003e-14, 1, 1.50996e-07, 1, -5.87999e-14, 2.26494e-07, 9.65555, -1.15522, -6.09837 )
 material_override = SubResource( 5 )
 use_collision = true
 radius = 0.0559531
@@ -1188,36 +699,379 @@ sides = 6
 [node name="carpet" type="Spatial" parent="map/map"]
 
 [node name="carpet" type="CSGBox" parent="map/map/carpet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23894, -0.00663507, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 12.2638, -2.35143, 3.8147e-06 )
 material_override = SubResource( 6 )
 width = 47.015
 height = 0.0229161
 
 [node name="carpet2" type="CSGBox" parent="map/map/carpet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68357, -0.00663507, 13.2843 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.7084, -2.35143, 13.2843 )
 material_override = SubResource( 6 )
 width = 47.015
 height = 0.0229161
 
-[node name="carpet4" type="CSGBox" parent="map/map/carpet"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -18.7252, -0.00663507, 14.7058 )
+[node name="carpet5" type="CSGBox" parent="map/map/carpet"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13.7004, -2.35143, -11.8179 )
 material_override = SubResource( 6 )
-width = 17.4296
+width = 13.7707
 height = 0.0229161
 
-[node name="carpet5" type="CSGBox" parent="map/map/carpet"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -18.7252, -0.00663507, -11.8179 )
+[node name="carpet6" type="CSGBox" parent="map/map/carpet"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13.7004, -2.35143, 11.4631 )
 material_override = SubResource( 6 )
 width = 13.7707
 height = 0.0229161
 
 [node name="carpet3" type="CSGBox" parent="map/map/carpet"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68357, -0.00663507, -13.1775 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 10.7084, -2.35143, -13.1775 )
 material_override = SubResource( 6 )
 width = 47.015
 height = 0.0229161
 
 [node name="main_floor" type="CSGMesh" parent="map/map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21977, 0, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 11.2446, -2.3448, 3.8147e-06 )
 mesh = SubResource( 7 )
 material = SubResource( 8 )
+
+[node name="rod" type="Spatial" parent="map"]
+transform = Transform( -1.70556, 0, 5.55743e-07, 0, 1.70556, 0, -5.55743e-07, 0, -1.70556, 8.00511, -1.74243, 0.546772 )
+
+[node name="Spatial" type="Spatial" parent="."]
+visible = false
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.3329, 2.65198, 27.4327 )
+width = 33.2727
+height = 6.10389
+
+[node name="CSGBox5" type="CSGBox" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.08877, 2.65198, 27.288 )
+width = 33.2727
+height = 6.10389
+
+[node name="CSGBox14" type="CSGBox" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.4022, 2.65198, 11.267 )
+width = 69.2474
+height = 6.10389
+
+[node name="CSGBox31" type="CSGBox" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.1023, 2.65198, -37.4335 )
+width = 25.4793
+height = 6.10389
+
+[node name="CSGBox44" type="CSGBox" parent="Spatial/CSGBox31"]
+transform = Transform( -1, 0, -8.74226e-08, 0, 1, 0, 8.74226e-08, 0, -1, 1.71838, 0.222559, -0.0176315 )
+operation = 2
+width = 3.21857
+height = 8.54454
+depth = 2.06662
+
+[node name="CSGBox15" type="CSGBox" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.0519, 2.65198, 11.267 )
+width = 69.2474
+height = 6.10389
+
+[node name="CSGBox2" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.63127, 1.43305, 42.9387 )
+width = 15.4474
+height = 8.54454
+
+[node name="CSGBox16" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.6313, 1.43305, 44.3671 )
+width = 11.4812
+height = 8.54454
+
+[node name="CSGBox30" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.6313, 1.43305, -22.2184 )
+width = 11.4812
+height = 8.54454
+
+[node name="CSGBox32" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.61632, 1.43305, -49.0846 )
+width = 48.2745
+height = 8.54454
+
+[node name="CSGBox33" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.08066, 1.43305, -25.7589 )
+width = 48.8871
+height = 8.54454
+
+[node name="CSGBox17" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.2752, 1.43305, 21.3338 )
+width = 11.4812
+height = 8.54454
+
+[node name="CSGBox40" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.7439, 1.43305, 10.8647 )
+width = 11.1768
+height = 8.54454
+
+[node name="CSGBox6" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.5274, 1.43305, 46.3751 )
+width = 15.4474
+height = 8.54454
+
+[node name="CSGBox9" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.3305, 1.43305, 5.60469 )
+width = 13.2083
+height = 8.54454
+
+[node name="CSGBox18" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.8097, 1.43305, 0.459385 )
+width = 22.2653
+height = 8.54454
+
+[node name="CSGBox20" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.8097, 1.43305, -12.2055 )
+width = 22.2653
+height = 8.54454
+
+[node name="CSGBox22" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.8962, 1.43305, -17.7164 )
+width = 19.2838
+height = 8.54454
+
+[node name="CSGBox24" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40.0768, 1.43305, -31.6467 )
+width = 17.1212
+height = 8.54454
+
+[node name="CSGBox26" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40.3524, 1.43305, -42.3624 )
+width = 16.9528
+height = 8.54454
+
+[node name="CSGBox28" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 23.5189, 1.43305, -55.9642 )
+width = 18.0736
+height = 8.54454
+
+[node name="CSGBox25" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 47.3941, 1.43305, -36.928 )
+width = 13.4791
+height = 8.54454
+
+[node name="CSGBox27" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 32.086, 1.43305, -49.1732 )
+width = 15.6658
+height = 8.54454
+
+[node name="CSGBox29" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 32.086, 1.43305, -49.1732 )
+width = 15.6658
+height = 8.54454
+
+[node name="CSGBox39" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 15.034, 1.43305, -52.5541 )
+width = 8.82658
+height = 8.54454
+
+[node name="CSGBox19" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 35.2591, 1.43305, -5.64337 )
+width = 15.0302
+height = 8.54454
+
+[node name="CSGBox35" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, 5.88213 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox36" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, 0.884346 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox37" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, -3.60346 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox38" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, -8.19327 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox42" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, -12.7831 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox43" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, -16.9649 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox44" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -17.7786, 1.43305, -20.7387 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox51" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, 6.15766 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox52" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, 1.15987 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox53" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, -3.32794 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox54" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, -7.91774 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox55" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, -12.5075 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox56" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, -16.6894 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox57" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10.6005, 1.43305, -20.4632 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox45" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -14.3621, 1.43305, -21.3449 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox46" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -10.3395, 1.43305, -21.3449 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox47" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -5.98615, 1.43305, -21.3449 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox48" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -1.70263, 1.43305, -21.2795 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox49" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 2.1143, 1.43305, -21.3449 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox50" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 6.13696, 1.43305, -21.3449 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox59" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -14.3621, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox60" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -10.3395, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox61" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -5.98615, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox62" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, -1.79817, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox63" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 2.1143, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox64" type="CSGBox" parent="Spatial"]
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 6.13696, 1.43305, 7.19954 )
+width = 2.79614
+height = 8.54454
+
+[node name="CSGBox41" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 15.3218, 1.43305, -5.64337 )
+operation = 2
+width = 15.0302
+height = 8.54454
+
+[node name="CSGBox42" type="CSGBox" parent="Spatial/CSGBox41"]
+operation = 2
+width = 3.21857
+height = 8.54454
+
+[node name="CSGBox43" type="CSGBox" parent="Spatial/CSGBox41"]
+operation = 2
+width = 3.21857
+height = 8.54454
+
+[node name="CSGBox21" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 25.1709, 1.43305, -15.6347 )
+width = 5.99145
+height = 8.54454
+
+[node name="CSGBox23" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 32.5187, 1.43305, -24.7889 )
+width = 15.4951
+height = 8.54454
+
+[node name="CSGBox34" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 15.3776, 1.43305, -21.8427 )
+visible = false
+width = 10.0134
+height = 8.54454
+
+[node name="CSGBox11" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.2038, 1.43305, 14.5324 )
+width = 21.9694
+height = 8.54454
+
+[node name="CSGBox12" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 38.2931, 1.43305, 24.8884 )
+width = 21.9694
+height = 8.54454
+
+[node name="CSGBox10" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.62013, 1.43305, 22.1057 )
+width = 13.3685
+height = 8.54454
+
+[node name="CSGBox13" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 46.4021, 1.43305, 19.7845 )
+width = 13.3685
+height = 8.54454
+
+[node name="CSGBox7" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 15.8137, 1.43305, 26.645 )
+width = 44.0388
+height = 8.54454
+
+[node name="CSGBox8" type="CSGBox" parent="Spatial"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 26.3483, 1.43305, 24.5623 )
+width = 46.9326
+height = 8.54454
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.04379, 1.43305, 11.6993 )
+operation = 2
+width = 36.1221
+height = 8.54454
+
+[node name="CSGBox5" type="CSGBox" parent="Spatial/CSGBox4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0493402 )
+operation = 2
+width = 2.27577
+height = 8.54454
+depth = 2.788
