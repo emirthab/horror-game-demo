@@ -20,7 +20,8 @@ onready var UI = get_tree().get_current_scene().get_node(str(Globals.scenename,"
 onready var bottom_info = str(Language.get(keyName)," ",Language.get("key"))
 
 func _ready():
-
+	print(bottom_info)
+	print(keyName)
 	#Connecting aim signals, Look --> (Globals.gd) for how to work
 	Globals.connect("_on_aim_entered",self,"_on_aim_entered")
 	Globals.connect("_on_aim_exited",self,"_on_aim_exited")
