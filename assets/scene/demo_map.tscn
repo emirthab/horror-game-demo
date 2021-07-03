@@ -9,10 +9,11 @@
 [ext_resource path="res://assets/material_shader/texture/grids/Light/texture_08.png" type="Texture" id=9]
 [ext_resource path="res://assets/material_shader/texture/grids/Orange/texture_09.png" type="Texture" id=10]
 [ext_resource path="res://assets/material_shader/texture/grids/Purple/texture_10.png" type="Texture" id=11]
-[ext_resource path="res://assets/script/door.gd" type="Script" id=12]
+[ext_resource path="res://script/door.gd" type="Script" id=12]
 [ext_resource path="res://assets/material_shader/texture/grids/Dark/texture_07.png" type="Texture" id=13]
 [ext_resource path="res://assets/material_shader/texture/grids/Red/texture_08.png" type="Texture" id=14]
 [ext_resource path="res://assets/material_shader/texture/grids/Orange/texture_08.png" type="Texture" id=15]
+
 
 [sub_resource type="Environment" id=1]
 background_color = Color( 0.792157, 0.905882, 0.858824, 1 )

@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/script/key.gd" type="Script" id=2]
+[ext_resource path="res://script/key.gd" type="Script" id=2]
 [ext_resource path="res://assets/geometry/article/key/Key.material" type="Material" id=3]
+
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {

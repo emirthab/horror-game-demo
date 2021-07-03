@@ -21,8 +21,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://assets/script/globals.gd"
-Language="*res://assets/script/language.gd"
+Globals="*res://script/globals.gd"
+Language="*res://script/language.gd"
 
 [editor_plugins]
 

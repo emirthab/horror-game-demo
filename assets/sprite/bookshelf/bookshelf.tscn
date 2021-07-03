@@ -5,7 +5,8 @@
 [ext_resource path="res://assets/sprite/bookshelf/books/book_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprite/bookshelf/books/book_3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sprite/bookshelf/books/books_1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/script/bookshelf.gd" type="Script" id=6]
+[ext_resource path="res://script/bookshelf.gd" type="Script" id=6]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "rotate_1"
